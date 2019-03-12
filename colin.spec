@@ -9,9 +9,9 @@
 %endif
 
 Name:           %{pypi_name}
-Version:        0.3.0
-Release:        1%{?dist}
-Summary:        Tool to check generic rules/best-practices for containers/images/dockerfiles
+Version:        0.3.1
+Release:        2%{?dist}
+Summary:        Tool to check generic rules/best-practices for containers/images/dockerfiles.
 
 License:        GPLv3+
 URL:            https://github.com/user-cont/colin
@@ -28,10 +28,8 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pypi_name}}
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-Requires:       python3-click
-Requires:       python3-six
-Requires:       python3-dockerfile-parse
-Requires:       python3-PyYAML
+Requires:       docker
+Recommends:     atomic
 
 %description -n python3-%{pypi_name}
 `colin` as a tool to check generic rules/best-practices
@@ -78,11 +76,29 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
-* Wed Nov 14 2018 Frantisek Lachman <flachman@redhat.com> - 0.3.0-1
+* Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Mon Jan 21 2019 Tomas Tomecek <nereone@gmail.com> 0.3.1-1
+- 0.3.1 release
+
+* Thu Nov 15 2018 lachmanfrantisek <lachmanfrantisek@gmail.com> 0.3.0-1
 - 0.3.0 release
 
-* Mon May 28 2018 Tomas Tomecek <ttomecek@redhat.com> - 0.1.0-1
-- new upstream release: 0.1.0
+* Mon Oct 22 2018 lachmanfrantisek <lachmanfrantisek@gmail.com> 0.2.1-1
+- 0.2.1 release
+
+* Wed Sep 19 2018 Jiri Popelka <jpopelka@redhat.com> 0.2.0-1
+- 0.2.0 release
+
+* Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.1.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Tue Jun 19 2018 Miro Hrončok <mhroncok@redhat.com> - 0.1.0-2
+- Rebuilt for Python 3.7
+
+* Wed May 30 2018 Jiri Popelka <jpopelka@redhat.com> 0.1.0-1
+- 0.1.0 release
 
 * Wed May 02 2018 Petr Hracek <phracek@redhat.com> - 0.0.4-3
 - Polishing texts and remove leftovers (#1572084)
